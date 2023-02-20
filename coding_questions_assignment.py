@@ -35,13 +35,19 @@ max_num_in_list([1,2,4,3,5,6,4,11,22,33,55,44665,32,54,3,33])
 # unless it is also divisible by 400. The return should be boolean type
 
 def is_leap_year(a_year):
-    if a_year%4 == 0 and a_year%100 !=0 and a_year%400!=0:
-        return True
+    if a_year%4 == 0:
+        if a_year%100 ==0:
+            if a_year%400 ==0:
+                return True
+            else:
+                return False
+        else: 
+            return True
     else:
         return False
+print(is_leap_year(1900))
+print(is_leap_year(2000))
 
-print(is_leap_year(1807))
-print(is_leap_year(1808))
 # Question 5
 # Write a function to check to see if all numbers in list are consecutive numbers.
 # For example, [2, 3, 4, 5, 6]
@@ -50,8 +56,5 @@ def is_consecutive(a_list):
     is_consecutive = all(a_list[i] == a_list[i-1] + 1 for i in range(1, len(a_list)))
 
     print(is_consecutive)
-
-is_consecutive([1,2,3,4,5,6])
-is_consecutive([1,1,2,3,4,5,6])
 
 
